@@ -1,18 +1,51 @@
 <html>
-    <h3>Clothes!</h3>
+    <h3>Python Clothes</h3>
     <a href="{{url_for('config')}}">
         Config Page
     </a>
-    {% for website in websites %}
-        {% if website.active %}
-            <div style="display:block">
-                <p>{{website.name}}</p>
+    <div class="product-container">
+        {% for website in websites %}
+            {% if website.active %}
                 {% for clothe in website.clothes %}
+                <div class="product">
                     <p>{{clothe.name}}</p>
                     <p>{{clothe.price}}</p> 
-                    <img class="{{clothe.img}}" src="{{clothe.img}}">
+                    <a href="{{clothe.link}}" target="_blank">
+                        <img class="product-image" data-src="{{clothe.img}}">
+                    </a>
+                </div>
                 {% endfor %}
-            </div>
-        {% endif %}
-    {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
 </html>
+
+<style>
+    body {
+        text-align: center;
+        margin: 0;
+    }
+
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .product {
+        flex: 0 0 20%;
+        border: grey solid 1px;
+    }
+
+    .product-image {
+        width: 100%;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@10.19.0/dist/lazyload.min.js"></script>
+<script>
+    new LazyLoad();
+</script>

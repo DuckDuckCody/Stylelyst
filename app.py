@@ -1,3 +1,8 @@
+###
+# Todo
+# 
+###
+
 from bs4 import BeautifulSoup
 from websites import websites
 import flask
@@ -14,8 +19,7 @@ def index():
 
 def get_clothes():
     for website in websites:
-        # print(time.time() - website['time_stamp'])
-        if website.get('active'):
+        if website.get('active') and time.time() - website.get('time_stamp') > 86400: # 1 days
             website['clothes'] = scrape_website(website.get('scrape_method'), (website.get('url')))
             website['time_stamp'] = time.time()
 
