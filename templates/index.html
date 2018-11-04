@@ -1,0 +1,18 @@
+<html>
+    <h3>Clothes!</h3>
+    <a href="{{url_for('config')}}">
+        Config Page
+    </a>
+    {% for website in websites %}
+        {% if website.active %}
+            <div style="display:block">
+                <p>{{website.name}}</p>
+                {% for clothe in website.clothes %}
+                    <p>{{clothe.name}}</p>
+                    <p>{{clothe.price}}</p> 
+                    <img class="{{clothe.img}}" src="{{clothe.img}}">
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</html>

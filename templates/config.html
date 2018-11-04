@@ -1,0 +1,18 @@
+<html>
+    <h1>Config page</h1>
+    <form method="POST" action="/config" enctype="multipart/form-data">
+        {% for website in websites %}
+            <p>{{website.name}}</p>
+            <p>
+                Include this website
+                <input name="{{website.id}}" type="checkbox" value="True" {% if website.active %} checked {% endif %} />
+            </p> 
+        {% endfor %}
+        <button type="submit">
+            Save settings
+        </button>
+        <a href="{{url_for('index')}}">
+            Cancel changes
+        </a>
+    </form>
+</html>
