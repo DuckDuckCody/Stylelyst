@@ -1,6 +1,11 @@
 ###
 # Todo
-# 
+# track current page
+# select category of clothes
+# better way to handle website data, maybe create a class for it
+#   seperate constants like urls to dynamic data like clothes with websites
+#   data strucuture so multiple categories can be cached
+# more websites
 ###
 
 from bs4 import BeautifulSoup
