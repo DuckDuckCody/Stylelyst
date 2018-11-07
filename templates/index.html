@@ -5,17 +5,16 @@
     </a>
     <div class="product-container">
         {% for website in websites %}
-            {% if website.active %}
-                {% for clothe in website.clothes %}
-                <div class="product">
-                    <p>{{clothe.name}}</p>
-                    <p>{{clothe.price}}</p> 
-                    <a href="{{clothe.link}}" target="_blank">
-                        <img class="product-image" data-src="{{clothe.img}}">
-                    </a>
-                </div>
-                {% endfor %}
-            {% endif %}
+            {% for clothe in website.clothes %}
+            <div class="product">
+                <p>{{clothe.name}}</p>
+                <p>{{clothe.price}}</p> 
+                <p style="font-size:0.75rem;color:grey">{{website.name}}</p>
+                <a href="{{clothe.link}}" target="_blank">
+                    <img class="product-image" data-src="{{clothe.img}}">
+                </a>
+            </div>
+            {% endfor %}
         {% endfor %}
     </div>
 </html>

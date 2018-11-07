@@ -1,13 +1,35 @@
 <html>
     <h1>Config page</h1>
     <form method="POST" action="/config" enctype="multipart/form-data">
-        {% for website in websites %}
-            <p>{{website.name}}</p>
-            <p>
-                Include this website
-                <input name="{{website.id}}" type="checkbox" value="True" {% if website.active %} checked {% endif %} />
-            </p> 
-        {% endfor %}
+        <div style="padding-bottom:1rem;">
+        <p>Gender</p>
+            {% for gender in genders %}
+                <div style="display:inline-block;width:10%">
+                    <label for="{{gender.id}}">{{gender.name}}</label>
+                    <input name="{{gender.name}}" type="radio" value="{{gender.id}}"
+                        {% if user_settings.gender == gender.id %} checked {% endif %}
+                    />
+                </div>
+            {% endfor %}
+        </div>
+        <p>Categories</p>
+            {% for category in categories %}
+                <div style="display:inline-block;width:10%">
+                    <label for="{{category.id}}">{{category.name}}</label>
+                    <input name="{{category.name}}" type="radio" value="{{category.id}}" />
+                </div>
+            {% endfor %}
+        </div>
+        <div style="padding-bottom:1rem;">
+            <p>Websites</p>
+            {% for website in websites %}
+            <div style="padding-bottom:0.5rem;">
+                <label for="{{website.id}}">{{website.name}}</label>
+                <input id="{{website.id}}" name="{{website.id}}" type="checkbox" value="True" 
+                    {% if website.id in user_settings.websites %} checked {% endif %} />
+            </div>
+            {% endfor %}
+        </div>
         <button type="submit">
             Save settings
         </button>

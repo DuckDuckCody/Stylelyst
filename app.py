@@ -1,15 +1,16 @@
 ###
-# Todo
+# TODO
 # track current page
 # select category of clothes
-# better way to handle website data, maybe create a class for it
-#   seperate constants like urls to dynamic data like clothes with websites
-#   data strucuture so multiple categories can be cached
-# more websites
+# way of only showing active websites in the websites view
+# save settings to new user_settings model in config route
 ###
 
 from bs4 import BeautifulSoup
 from websites import websites
+from models.user_settings import user_settings
+from models.genders import genders
+from models.categories import categories
 import flask
 import requests
 import time
@@ -24,12 +25,9 @@ def index():
 
 def get_clothes():
     for website in websites:
-        if website.get('active') and time.time() - website.get('time_stamp') > 86400: # 1 days
-            website['clothes'] = scrape_website(website.get('scrape_method'), (website.get('url')))
+        if website.get('id') in user_settings.get('websites') and time.time() - website.get('time_stamp') > 86400: # 1 days
+            website['clothes'] = website.get('scrape_method')(get_clothe_html((website.get('url'))))
             website['time_stamp'] = time.time()
-
-def scrape_website(scrape_method, url):
-    return scrape_method(get_clothe_html(url))
 
 def get_clothe_html(url):
     return BeautifulSoup(requests.get(url + str(current_page)).text, 'lxml')
@@ -40,9 +38,10 @@ def config():
         save_settings(flask.request.form.to_dict())
         return flask.redirect(flask.url_for('index'))
     else:
-        return flask.render_template('config.html', websites = websites)
+        return flask.render_template('config.html', websites = websites, genders = genders, categories = categories, user_settings = user_settings)
 
 def save_settings(settings):
+    print(settings)
     for website in websites:
         if settings.get(str(website.get('id'))) == 'True':
             website['active'] = True
