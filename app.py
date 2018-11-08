@@ -6,6 +6,7 @@
 # save settings to new user_settings model in config route
 # make a base html file for every other template to inherit from
 # <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+# move the get_clothe_html function to the scrapers end
 ###
 
 from bs4 import BeautifulSoup
