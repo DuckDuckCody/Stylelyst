@@ -4,6 +4,7 @@
 # select category of clothes
 # way of only showing active websites in the websites view
 # save settings to new user_settings model in config route
+# make a base html file for every other template to inherit from
 ###
 
 from bs4 import BeautifulSoup
