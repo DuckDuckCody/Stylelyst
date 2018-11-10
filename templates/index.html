@@ -1,4 +1,10 @@
-<html>
+{% extends "base.html" %}
+
+{% block title %} 
+    Python Clothes
+{% endblock %}
+
+{% block content %}
     <h3>Python Clothes</h3>
     <a href="{{url_for('config')}}">
         Config Page
@@ -17,34 +23,11 @@
             {% endfor %}
         {% endfor %}
     </div>
-</html>
+{% endblock %}
 
-<style>
-    body {
-        text-align: center;
-        margin: 0;
-    }
-
-    *, *:before, *:after {
-        box-sizing: border-box;
-    }
-
-    .product-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .product {
-        flex: 0 0 20%;
-        border: grey solid 1px;
-    }
-
-    .product-image {
-        width: 100%;
-    }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@10.19.0/dist/lazyload.min.js"></script>
-<script>
-    new LazyLoad();
-</script>
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@10.19.0/dist/lazyload.min.js"></script>
+    <script>
+        new LazyLoad();
+    </script>
+{% endblock %}
