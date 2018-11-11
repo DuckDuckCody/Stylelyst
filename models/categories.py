@@ -1,4 +1,4 @@
-categories = [
+Categories = [
     {
         "id": 1,
         "name": "tops"

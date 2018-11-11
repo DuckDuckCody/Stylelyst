@@ -1,7 +1,7 @@
 from services.scrapers import west_brother, culture_kings
 from constants import west_brothers_url, culture_kings_url
 
-websites = [
+Websites = [
     {
         'id': 1,
         'name': 'West Brothers',
