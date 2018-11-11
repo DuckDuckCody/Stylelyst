@@ -7,13 +7,13 @@
 
 {% block content %}
     <h1>Config page</h1>
-    <form method="POST" action="/config" enctype="multipart/form-data">
+    <form name="form-config" id="form-config">
         <div style="padding-bottom:1rem;">
         <p>Gender</p>
             {% for gender in genders %}
                 <div style="display:inline-block;width:10%">
                     <label for="{{gender.id}}">{{gender.name}}</label>
-                    <input name="{{gender.name}}" type="radio" value="{{gender.id}}"
+                    <input id="{{gender.id}}" name="gender" type="radio" value="{{gender.id}}"
                         {% if user_settings.gender == gender.id %} checked {% endif %}
                     />
                 </div>
@@ -23,25 +23,35 @@
             {% for category in categories %}
                 <div style="display:inline-block;width:10%">
                     <label for="{{category.id}}">{{category.name}}</label>
-                    <input name="{{category.name}}" type="radio" value="{{category.id}}" />
+                    <input id="{{category.id}}" name="category" type="radio" value="{{category.id}}"
+                        {% if user_settings.category == category.id %} checked {% endif %}
+                    />
                 </div>
             {% endfor %}
         </div>
-        <div style="padding-bottom:1rem;">
+        <div style="padding-bottom:1rem;" id="container-websites">
             <p>Websites</p>
             {% for website in websites %}
             <div style="padding-bottom:0.5rem;">
                 <label for="{{website.id}}">{{website.name}}</label>
                 <input id="{{website.id}}" name="{{website.id}}" type="checkbox" value="True" 
-                    {% if website.id in user_settings.websites %} checked {% endif %} />
+                    {% if website.id in user_settings.websites %} checked {% endif %} 
+                />
             </div>
             {% endfor %}
         </div>
-        <button type="submit">
-            Save settings
-        </button>
-        <a href="{{url_for('index')}}">
-            Cancel changes
-        </a>
+        <div class="footer">
+            <button type="submit">
+                Save settings
+            </button>
+            <a href="{{url_for('index')}}" style="display:block; margin-top:1rem">
+                Cancel changes
+            </a>
+        </div>
     </form>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/config_script.js') }}"></script>
 {% endblock %}

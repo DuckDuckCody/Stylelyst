@@ -1,6 +1,5 @@
 #find the javascript map equvialent to make this better
-#import the variables better
-import websites
+from constants import west_brothers_url, culture_kings_url
 
 def west_brother(html):
     clothes = []
@@ -9,7 +8,7 @@ def west_brother(html):
             'price': product.span.text,
             'img': product.img['src'],
             'name': product.h3.text,
-            'link': websites.west_brothers_url + product.find('div', class_="product-info").a['href']
+            'link': west_brothers_url + product.find('div', class_="product-info").a['href']
         })
     return(clothes)
 
@@ -20,6 +19,6 @@ def culture_kings(html):
             'price': product.find('span', class_="money").text,
             'img': product.find('div', class_="product-card__image").img['data-src'],
             'name': product.find('p', class_="product-title").a.text,
-            'link': websites.culture_kings_url + product.find('a', class_="product-card__link")['href']
+            'link': culture_kings_url + product.find('a', class_="product-card__link")['href']
         })
     return(clothes)

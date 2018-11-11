@@ -1,23 +1,21 @@
-import scrapers
-
-west_brothers_url = "https://www.westbrothers.com.au"
-culture_kings_url = "https://www.culturekings.com.au"
+from services.scrapers import west_brother, culture_kings
+from constants import west_brothers_url, culture_kings_url
 
 websites = [
     {
         'id': 1,
         'name': 'West Brothers',
-        'url': 'https://www.westbrothers.com.au/collections/mens-clothing?page=',
+        'url': west_brothers_url + '/collections/mens-clothing?page=',
         'clothes': [],
-        'scrape_method': scrapers.west_brother,
+        'scrape_method': west_brother,
         'time_stamp': 0
     },
     {
         'id': 2,
         'name': 'Culture Kings',
-        'url': 'https://www.culturekings.com.au/collections/mens-tops?page=',
+        'url': culture_kings_url + '/collections/mens-tops?page=',
         'clothes': [],
-        'scrape_method': scrapers.culture_kings,
+        'scrape_method': culture_kings,
         'time_stamp': 0
     }
 ]
