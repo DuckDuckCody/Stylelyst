@@ -6,6 +6,9 @@
 # move the get_clothe_html function to the scrapers end
 ###
 
+# run script for windows
+# ${env:FLASK_APP}='app.py'; ${env:FLASK_ENV}='development'; flask run
+
 from models.Websites import Websites
 from models.UserSettings import UserSettings
 from models.Genders import Genders
@@ -24,7 +27,7 @@ def index():
 def get_clothes():
     for website in Websites:
         if website.get('id') in user_settings.websites and time.time() - website.get('time_stamp') > 86400: # 1 days
-            website['clothes'] = website.get(user_settings)
+            website['clothes'] = website.get('scrape_method')(user_settings, website)
             website['time_stamp'] = time.time()
 
 @app.route("/config", methods=['GET', 'POST'])
