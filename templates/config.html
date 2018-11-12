@@ -6,45 +6,55 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Config page</h1>
+    <h4 class="mb-3">
+        Config Page
+    </h4>
     <form name="form-config" id="form-config">
         <div style="padding-bottom:1rem;">
-        <p>Gender</p>
-            {% for gender in genders %}
-                <div style="display:inline-block;width:10%">
-                    <label for="{{gender.id}}">{{gender.name}}</label>
-                    <input id="{{gender.id}}" name="gender" type="radio" value="{{gender.id}}"
-                        {% if user_settings.gender == gender.id %} checked {% endif %}
-                    />
+            <h5>Gender</h5>
+            <div class="field">
+                <div class="control has-text-centered">
+                    {% for gender in genders %}
+                        <label class="radio">
+                            <input id="gender-{{gender.id}}" name="gender" type="radio" value="{{gender.id}}"
+                                {% if user_settings.gender == gender.id %} checked {% endif %}
+                            />
+                            {{gender.name}}
+                        </label>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            </div>
         </div>
-        <p>Categories</p>
-            {% for category in categories %}
-                <div style="display:inline-block;width:10%">
-                    <label for="{{category.id}}">{{category.name}}</label>
-                    <input id="{{category.id}}" name="category" type="radio" value="{{category.id}}"
-                        {% if user_settings.category == category.id %} checked {% endif %}
-                    />
+            <p class="is-size-5">Categories</p>
+            <div class="field">
+                <div class="control has-text-centered">
+                    {% for category in categories %}
+                        <label class="radio">
+                            <input id="category-{{category.id}}" name="category" type="radio" value="{{category.id}}"
+                                {% if user_settings.category == category.id %} checked {% endif %}
+                            />
+                            {{category.name}}
+                        </label>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            </div>
         </div>
         <div style="padding-bottom:1rem;" id="container-websites">
             <p>Websites</p>
             {% for website in websites %}
             <div style="padding-bottom:0.5rem;">
                 <label for="{{website.id}}">{{website.name}}</label>
-                <input id="{{website.id}}" name="{{website.id}}" type="checkbox" value="True" 
+                <input id="website-{{website.id}}" name="{{website.id}}" type="checkbox" value="True" 
                     {% if website.id in user_settings.websites %} checked {% endif %} 
                 />
             </div>
             {% endfor %}
         </div>
         <div class="footer">
-            <button type="submit">
+            <button class="btn btn-primary" type="submit">
                 Save settings
             </button>
-            <a href="{{url_for('index')}}" style="display:block; margin-top:1rem">
+            <a class="button" href="{{url_for('index')}}">
                 Cancel changes
             </a>
         </div>
