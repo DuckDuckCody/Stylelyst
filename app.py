@@ -2,7 +2,7 @@
 # TODO
 # track current page
 # move get_clothes to a service
-#   filter the get_clothes method with gender and categories
+#   get urls based on gender and category selected
 ###
 
 # run script for windows
