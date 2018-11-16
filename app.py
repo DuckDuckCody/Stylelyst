@@ -1,9 +1,8 @@
 ###
 # TODO
 # track current page
-# select category of clothes
-# fiter the get clothes method with gender and categories
-# move the get_clothe_html function to the scrapers end
+# move get_clothes to a service
+#   get urls based on gender and category selected
 ###
 
 # run script for windows
@@ -19,7 +18,7 @@ import time
 app = flask.Flask(__name__)
 user_settings = UserSettings()
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def index():
     get_clothes()
     return flask.render_template('index.html', websites = Websites, user_settings = user_settings)
