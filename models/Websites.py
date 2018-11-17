@@ -1,18 +1,36 @@
-west_brothers_url = "https://www.westbrothers.com.au/"
+lonley_kids_club_url = "https://lonelykidsclub.com/"
 culture_kings_url = "https://www.culturekings.com.au/collections/"
 
 Websites = [
     {
         'id': 1,
-        'name': 'West Brothers',
+        'name': 'Lonley Kids Club',
         'clothes': [],
-        'base_url': west_brothers_url,
+        'base_url': lonley_kids_club_url,
         "urls": [
             {
-                "id": 1,
                 "gender": 1,
                 "category": 1,
-                "url": west_brothers_url
+                "url": lonley_kids_club_url + "t-shirts/page/1",
+                "clothes": []
+            },
+            {
+                "gender": 1,
+                "category": 2,
+                "url": lonley_kids_club_url + "pants/page/1",
+                "clothes": []
+            },
+            {
+                "gender": 2,
+                "category": 1,
+                "url": lonley_kids_club_url + "t-shirts/page/1",
+                "clothes": []
+            },
+            {
+                "gender": 2,
+                "category": 2,
+                "url": lonley_kids_club_url + "pants/page/1",
+                "clothes": []
             }
         ]
     },
@@ -23,28 +41,24 @@ Websites = [
         'base_url': culture_kings_url,
         "urls": [
             {
-                "id": 1,
                 "gender": 1,
                 "category": 1,
                 "url": culture_kings_url + "mens-tops?page=",
                 "clothes": []
             },
             {
-                "id": 2,
                 "gender": 1,
                 "category": 2,
                 "url": culture_kings_url + "mens-bottoms?page=",
                 "clothes": []
             },
             {
-                "id": 3,
                 "gender": 2,
                 "category": 1,
                 "url": culture_kings_url + "/womens-tops?page=",
                 "clothes": []
             },
             {
-                "id": 4,
                 "gender": 2,
                 "category": 2,
                 "url": culture_kings_url + "/womens-bottoms?page=",

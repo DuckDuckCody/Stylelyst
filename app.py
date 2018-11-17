@@ -1,8 +1,8 @@
 ###
 # TODO
 # track current page
-# move get_clothes to a service
-#   get urls based on gender and category selected
+# refactor scarpers service
+# make a nice look frontend with bulma
 ###
 
 # run script for windows
@@ -12,7 +12,7 @@ from models.Websites import Websites
 from models.UserSettings import UserSettings
 from models.Genders import Genders
 from models.Categories import Categories
-from services.scrapers import scrape_website
+from services.scrapers import scrape_websites
 import flask
 
 app = flask.Flask(__name__)
@@ -20,13 +20,9 @@ user_settings = UserSettings()
 
 @app.route("/", methods=['GET'])
 def index():
-    get_clothes()
+    print(user_settings)
+    scrape_websites(user_settings, Websites)
     return flask.render_template('index.html', websites = Websites, user_settings = user_settings)
-
-def get_clothes():
-    for website in Websites:
-        if website.get('id') in user_settings.websites:
-            scrape_website(user_settings, website)
 
 @app.route("/config", methods=['GET', 'POST'])
 def config():

@@ -1,6 +1,6 @@
 class UserSettings:
     def __init__(self):
-        self.websites = [2]
+        self.websites = [1]
         self.gender = 1
         self.category = 1
         self.current_page = 1
@@ -9,3 +9,6 @@ class UserSettings:
         self.websites = settings.get('websites')
         self.gender = settings.get('gender')
         self.category = settings.get('category')
+
+    def __str__(self):
+        return "websites: %s, gender: %s, category: %s" % (self.websites, self.gender, self.category)
