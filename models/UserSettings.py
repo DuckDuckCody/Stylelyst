@@ -1,7 +1,7 @@
 class UserSettings:
     def __init__(self):
-        self.websites = [1, 2]
-        self.gender = 2
+        self.websites = [2]
+        self.gender = 1
         self.category = 1
         self.current_page = 1
 

@@ -1,15 +1,11 @@
-from services.scrapers import west_brother, culture_kings
-
-west_brothers_url = "https://www.westbrothers.com.au"
-culture_kings_url = "https://www.westbrothers.com.au"
+west_brothers_url = "https://www.westbrothers.com.au/"
+culture_kings_url = "https://www.culturekings.com.au/collections/"
 
 Websites = [
     {
         'id': 1,
         'name': 'West Brothers',
         'clothes': [],
-        'scrape_method': west_brother,
-        'time_stamp': 0,
         'base_url': west_brothers_url,
         "urls": [
             {
@@ -24,30 +20,36 @@ Websites = [
         'id': 2,
         'name': 'Culture Kings',
         'clothes': [],
-        'scrape_method': culture_kings,
-        'time_stamp': 0,
-        'url': culture_kings_url,
+        'base_url': culture_kings_url,
         "urls": [
             {
                 "id": 1,
                 "gender": 1,
                 "category": 1,
-                "url": culture_kings_url + "/collections/mens-tops?page="
+                "url": culture_kings_url + "mens-tops?page=",
+                "clothes": []
+            },
+            {
+                "id": 2,
+                "gender": 1,
+                "category": 2,
+                "url": culture_kings_url + "mens-bottoms?page=",
+                "clothes": []
+            },
+            {
+                "id": 3,
+                "gender": 2,
+                "category": 1,
+                "url": culture_kings_url + "/womens-tops?page=",
+                "clothes": []
+            },
+            {
+                "id": 4,
+                "gender": 2,
+                "category": 2,
+                "url": culture_kings_url + "/womens-bottoms?page=",
+                "clothes": []
             }
         ]
     }
 ]
-
-#clothes =  [
-#    {
-#        "gender": 1,
-#        "category": 4,
-#        "items": [
-#            {
-#                "price": 0,
-#                "name": "dwa",
-#                "img": "dwa"
-#            }
-#        ]
-#    }
-#]
