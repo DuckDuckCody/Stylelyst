@@ -1,8 +1,7 @@
 ###
 # TODO
 # track current page
-# refactor scarpers service
-# make a nice look frontend with bulma
+# make a nice looking frontend with bulma
 ###
 
 # run script for windows

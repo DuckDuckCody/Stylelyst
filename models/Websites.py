@@ -7,6 +7,16 @@ Websites = [
         'name': 'Lonley Kids Club',
         'clothes': [],
         'base_url': lonley_kids_club_url,
+        'scraper_config': {
+            'container': {
+                'tag': 'li',
+                'class': 'product'
+            },
+            'price': None,
+            'img': None,
+            'name': None,
+            'link': None
+        },
         "urls": [
             {
                 "gender": 1,
@@ -39,6 +49,28 @@ Websites = [
         'name': 'Culture Kings',
         'clothes': [],
         'base_url': culture_kings_url,
+        'scraper_config': {
+            'container': {
+                'tag': 'div',
+                'class': 'product-grid-item'
+            },
+            'price': {
+                'tag': 'span',
+                'class': 'money'
+            },
+            'img': {
+                'tag': 'div',
+                'class': 'product-card__image'
+            },
+            'name': {
+                'tag': 'p',
+                'class': 'product-title'
+            },
+            'link': {
+                'tag': 'a',
+                'class': 'product-card__link'
+            }
+        },
         "urls": [
             {
                 "gender": 1,
