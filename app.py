@@ -19,7 +19,7 @@ user_settings = UserSettings()
 
 @app.route("/", methods=['GET'])
 def index():
-    print(user_settings)
+    user_settings.current_page = flask.request.args.get('page')
     scrape_websites(user_settings, Websites)
     return flask.render_template('index.html', websites = Websites, user_settings = user_settings)
 

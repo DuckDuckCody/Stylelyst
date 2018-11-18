@@ -9,6 +9,14 @@
     <a href="{{url_for('config')}}">
         Config Page
     </a>
+    {% if user_settings.current_page != '1' %}
+        <a href="{{url_for('index')}}">
+            Previous Page
+        </a>
+    {% endif %}
+    <a href="{{url_for('index')}}?page=2">
+        Next Page
+    </a>
     <div class="product-container">
         {% for website in websites %}
             {% if website.id in user_settings.websites %}

@@ -21,25 +21,25 @@ Websites = [
             {
                 "gender": 1,
                 "category": 1,
-                "url": lonley_kids_club_url + "t-shirts/page/1",
+                "url": lonley_kids_club_url + "t-shirts/page/",
                 "clothes": []
             },
             {
                 "gender": 1,
                 "category": 2,
-                "url": lonley_kids_club_url + "pants/page/1",
+                "url": lonley_kids_club_url + "pants/page/",
                 "clothes": []
             },
             {
                 "gender": 2,
                 "category": 1,
-                "url": lonley_kids_club_url + "t-shirts/page/1",
+                "url": lonley_kids_club_url + "t-shirts/page/",
                 "clothes": []
             },
             {
                 "gender": 2,
                 "category": 2,
-                "url": lonley_kids_club_url + "pants/page/1",
+                "url": lonley_kids_club_url + "pants/page/",
                 "clothes": []
             }
         ]

@@ -11,19 +11,18 @@ def scrape_websites(user_settings, websites):
 def find_website(user_settings, website):
     website_url_info = get_website_url_info(user_settings, website)
     if website_url_info.get('time_stamp') is None or time.time() - website_url_info.get('time_stamp') > 86400: # if clothes data over 1 day old
-        scrape_wesbite(website.get('base_url'), website.get('scraper_config'), website_url_info)
+        scrape_wesbite(user_settings, website.get('base_url'), website.get('scraper_config'), website_url_info)
 
 def get_website_url_info(user_settings, website):
     return next((url for url in website.get('urls') if url['gender'] == user_settings.gender and url['category'] == user_settings.category), None)
 
-def get_html(url):
+def get_html(url, current_page):
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0'}
-    return BeautifulSoup(requests.get(url, headers=headers).text, 'lxml')
+    return BeautifulSoup(requests.get(url + current_page, headers=headers).text, 'lxml')
 
-def scrape_wesbite(base_url, config, url_info):
-    
+def scrape_wesbite(user_settings, base_url, config, url_info):
     url_info['clothes'] = []
-    for product in get_html(url_info.get('url')).find_all(config['container']['tag'], class_=config['container']['class']):
+    for product in get_html(url_info.get('url'), user_settings.current_page).find_all(config['container']['tag'], class_=config['container']['class']):
         url_info['clothes'].append({
             'price': product.span.text if config.get('price') is None else product.find(config['price']['tag'], class_=config['price']['class']).text,
             'img': product.img['src'] if config.get('img') is None else product.find(config['img']['tag'], class_=config['img']['class']).img['data-src'],
