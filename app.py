@@ -13,6 +13,7 @@ from models.Genders import Genders
 from models.Categories import Categories
 from services.scrapers import scrape_websites
 import flask
+import pprint
 
 app = flask.Flask(__name__)
 user_settings = UserSettings()
@@ -20,8 +21,8 @@ user_settings = UserSettings()
 @app.route("/", methods=['GET'])
 def index():
     user_settings.current_page = flask.request.args.get('page')
-    scrape_websites(user_settings, Websites)
-    return flask.render_template('index.html', websites = Websites, user_settings = user_settings)
+    hot_clothes = scrape_websites(user_settings, Websites)
+    return flask.render_template('index.html', hot_clothes = hot_clothes, user_settings = user_settings)
 
 @app.route("/config", methods=['GET', 'POST'])
 def config():

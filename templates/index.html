@@ -18,24 +18,15 @@
         Next Page
     </a>
     <div class="product-container">
-        {% for website in websites %}
-            {% if website.id in user_settings.websites %}
-                {% for url in website.urls %}
-                    {% if url.gender == user_settings.gender and url.category == user_settings.category %}
-                        {% for item in url.clothes %}
-                            <div class="product">
-                                <p>{{item.name}}</p>
-                                <p>{{item.price}}</p> 
-                                <p style="font-size:0.75rem;color:grey">{{website.name}}</p>
-                                <a href="{{item.link}}" target="_blank">
-                                    <img class="product-image" data-src="{{item.img}}">
-                                </a>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
+    {% for clothe in hot_clothes %}
+        <div class="product">
+            <p>{{clothe.name}}</p>
+            <p>{{clothe.price}}</p> 
+            <a href="{{clothe.link}}" target="_blank">
+                <img class="product-image" data-src="{{clothe.img}}">
+            </a>
+        </div>
+    {% endfor %}
     </div>
 {% endblock %}
 

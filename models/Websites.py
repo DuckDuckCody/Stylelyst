@@ -5,7 +5,6 @@ Websites = [
     {
         'id': 1,
         'name': 'Lonley Kids Club',
-        'clothes': [],
         'base_url': lonley_kids_club_url,
         'scraper_config': {
             'container': {
@@ -23,6 +22,14 @@ Websites = [
                 "category": 1,
                 "url": lonley_kids_club_url + "t-shirts/page/",
                 "clothes": []
+                # pages: [
+                #   {
+                #       page: 1,
+                #       time_stamp: "",
+                #       is_late_page: 
+                #       clothes: []
+                #   },
+                # ]
             },
             {
                 "gender": 1,
@@ -47,7 +54,6 @@ Websites = [
     {
         'id': 2,
         'name': 'Culture Kings',
-        'clothes': [],
         'base_url': culture_kings_url,
         'scraper_config': {
             'container': {
