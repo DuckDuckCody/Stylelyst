@@ -7,17 +7,22 @@ def scrape_websites(user_settings, websites):
     hot_clothes = []
     for website in websites:
         if website.get('id') in user_settings.websites:
-            hot_clothes = hot_clothes + find_website(user_settings, website)
+            hot_clothes = hot_clothes + update_website_data(user_settings, website)
     return hot_clothes
 
-def find_website(user_settings, website):
-    url_info = get_website_url_info(user_settings, website)
-    if url_info.get('time_stamp') is None or time.time() - url_info.get('time_stamp') > 86400: # if clothes data over 1 day old
+def update_website_data(user_settings, website):
+    url_info = find_url_info(user_settings, website)
+    page = find_page(url_info, user_settings)
+    print(page)
+    if page.get('time_stamp') is None or time.time() - page.get('time_stamp') > 86400: # if clothes data over 1 day old
         scrape_wesbite(user_settings, website.get('base_url'), website.get('scraper_config'), url_info)
     return url_info.get('clothes')
 
-def get_website_url_info(user_settings, website):
+def find_url_info(user_settings, website):
     return next((url for url in website.get('urls') if url['gender'] == user_settings.gender and url['category'] == user_settings.category), None)
+
+def find_page(url_info, user_settings):
+    return next((page for page in url_info.get('pages') if page.get('page') == user_settings.current_page), None)
 
 def get_html(url, current_page):
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0'}

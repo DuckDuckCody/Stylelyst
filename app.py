@@ -4,16 +4,12 @@
 # make a nice looking frontend with bulma
 ###
 
-# run script for windows
-# ${env:FLASK_APP}='app.py'; ${env:FLASK_ENV}='development'; flask run
-
 from models.Websites import Websites
 from models.UserSettings import UserSettings
 from models.Genders import Genders
 from models.Categories import Categories
-from services.scrapers import scrape_websites
+from services.scraper import scrape_websites
 import flask
-import pprint
 
 app = flask.Flask(__name__)
 user_settings = UserSettings()

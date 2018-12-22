@@ -22,14 +22,6 @@ Websites = [
                 "category": 1,
                 "url": lonley_kids_club_url + "t-shirts/page/",
                 "clothes": []
-                # pages: [
-                #   {
-                #       page: 1,
-                #       time_stamp: "",
-                #       is_late_page: 
-                #       clothes: []
-                #   },
-                # ]
             },
             {
                 "gender": 1,
@@ -82,7 +74,15 @@ Websites = [
                 "gender": 1,
                 "category": 1,
                 "url": culture_kings_url + "mens-tops?page=",
-                "clothes": []
+                "clothes": [],
+                "pages": [
+                    {
+                        "page": "1",
+                        "time_stamp": None,
+                        "is_late_page": "",
+                        "clothes": []
+                    }
+                ]
             },
             {
                 "gender": 1,
