@@ -1,10 +1,10 @@
 Categories = [
     {
         "id": 1,
-        "name": "tops"
+        "name": "Tops"
     }, 
     {
         "id": 2,
-        "name": "bottoms"
+        "name": "Pants"
     }
 ]

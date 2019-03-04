@@ -1,10 +1,10 @@
 Genders =  [
     {
         "id": 1,
-        "name": "male",
+        "name": "Male",
     },
     {
         "id": 2,
-        "name": "female"
+        "name": "Female"
     }
 ]
