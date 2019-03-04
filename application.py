@@ -6,11 +6,11 @@ from models.Categories import Categories
 from services.scraper import scrape_websites
 from flask import Flask, render_template, redirect, flash, url_for, request
 
-app = Flask(__name__)
+application = Flask(__name__)
 user_settings = UserSettings()
 website_data = WebsiteData
 
-@app.route("/", methods=['GET'])
+@application.route("/", methods=['GET'])
 def index():
     current_page = request.args.get('page')
     if current_page is None:
@@ -19,7 +19,7 @@ def index():
     clothes = scrape_websites(user_settings, website_data, current_page)
     return render_template('index.html', clothes=clothes, current_page=current_page)
 
-@app.route("/config", methods=['GET', 'POST'])
+@application.route("/config", methods=['GET', 'POST'])
 def config():
     if request.method == 'POST':       
         user_settings.save_settings(request.json)
