@@ -5,28 +5,38 @@
 {% endblock %}
 
 {% block content %}
-    <h3>Python Clothes</h3>
-    <a href="{{url_for('config')}}">
-        Config Page
-    </a>
-    {% if user_settings.current_page != '1' %}
-        <a href="{{url_for('index')}}">
-            Previous Page
-        </a>
-    {% endif %}
-    <a href="{{url_for('index')}}?page=2">
-        Next Page
-    </a>
-    <div class="product-container">
-    {% for clothe in hot_clothes %}
-        <div class="product">
-            <p>{{clothe.name}}</p>
-            <p>{{clothe.price}}</p> 
-            <a href="{{clothe.link}}" target="_blank">
-                <img class="product-image" data-src="{{clothe.img}}">
+    <div class="navbar">
+        <div class="flex space-around navbar-bar">
+            <h3>Python Clothes</h3>
+            <span>Page: {{current_page}}</span>
+        </div>
+        <div class="flex flex-end navbar-bar">
+            {% if current_page != '1' %}
+                <a class="flex-b-33" href="{{url_for('index')}}?page={{current_page|int - 1}}">
+                    Previous Page
+                </a>
+            {% endif %}
+            <a class="flex-b-33" href="{{url_for('config')}}">
+                Config
+            </a>
+            <a class="flex-b-33" href="{{url_for('index')}}?page={{current_page|int + 1}}">
+                Next Page
             </a>
         </div>
-    {% endfor %}
+    </div>
+    <div class="product-container">
+        {% for clothe in clothes %}
+            <div class="product">
+                <p>{{clothe.name}}</p>
+                <p>{{clothe.price}}</p> 
+                <a href="{{clothe.link}}" target="_blank">
+                    <img class="product-image" data-src="{{clothe.img}}">
+                </a>
+            </div>
+        {% endfor %}
+        <a class="product" href="{{url_for('index')}}?page={{current_page|int + 1}}">
+            Next Page
+        </a>
     </div>
 {% endblock %}
 
