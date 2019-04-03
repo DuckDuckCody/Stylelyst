@@ -1,10 +1,7 @@
-from models.Websites import Websites
-from models.WebsiteData import WebsiteData
-from models.Genders import Genders
-from models.Categories import Categories
-from services.scraper import scrape_websites
-from decorators.load_user_settings import load_user_settings
 from flask import Flask, render_template, redirect, flash, url_for, request
+from models import Websites, WebsiteData, Genders, Categories
+from services import scrape_websites
+from decorators import load_user_settings
 
 application = Flask(__name__)
 website_data = WebsiteData

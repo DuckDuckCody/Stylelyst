@@ -1,7 +1,7 @@
-from bs4 import BeautifulSoup
 import requests
 import time
-from services.ObjectManager import ObjectManager
+from bs4 import BeautifulSoup
+from services import ObjectManager
 
 def scrape_websites(user_settings, website_data, current_page):    
     data = []

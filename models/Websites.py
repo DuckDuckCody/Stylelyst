@@ -12,10 +12,3 @@ Websites = [
         'name': 'Peppermayo'
     }
 ]
-
-"""
-{
-    'id': 1,
-    'name': 'Lonley Kids Club',
-},
-"""
