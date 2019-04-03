@@ -9,7 +9,7 @@ WebsiteData = [
         'gender': 1,
         'expiry': 0,
         'base_url': WebsiteUrls.culture_kings.value,
-        'url': WebsiteUrls.culture_kings.value + 'mens-tops?view=show-60&page=',
+        'url': WebsiteUrls.culture_kings.value + '/mens-tops?view=show-60&page=',
         'scraper_config': ScaperConfigs.culture_kings.value,
         'data': []
     },
@@ -19,7 +19,7 @@ WebsiteData = [
         'gender': 1,
         'expiry': 0,
         'base_url': WebsiteUrls.culture_kings.value,
-        'url': WebsiteUrls.culture_kings.value + 'mens-bottoms?view=show-60&page=',
+        'url': WebsiteUrls.culture_kings.value + '/mens-bottoms?view=show-60&page=',
         'scraper_config': ScaperConfigs.culture_kings.value,
         'data': []
     },
@@ -29,7 +29,7 @@ WebsiteData = [
         'gender': 2,
         'expiry': 0,
         'base_url': WebsiteUrls.culture_kings.value,
-        'url': WebsiteUrls.culture_kings.value + 'womens-tops?view=show-60&page="',
+        'url': WebsiteUrls.culture_kings.value + '/womens-tops?view=show-60&page="',
         'scraper_config': ScaperConfigs.culture_kings.value,
         'data': []
     },
@@ -39,7 +39,7 @@ WebsiteData = [
         'gender': 2,
         'expiry': 0,
         'base_url': WebsiteUrls.culture_kings.value,
-        'url': WebsiteUrls.culture_kings.value + 'womens-bottoms?view=show-60&page=',
+        'url': WebsiteUrls.culture_kings.value + '/womens-bottoms?view=show-60&page=',
         'scraper_config': ScaperConfigs.culture_kings.value,
         'data': []
     },
@@ -50,7 +50,7 @@ WebsiteData = [
         'gender': 1,
         'expiry': 0,
         'base_url': WebsiteUrls.the_iconic.value,
-        'url': WebsiteUrls.the_iconic.value + 'mens-clothing-tshirts-singlets/?page=',
+        'url': WebsiteUrls.the_iconic.value + '/mens-clothing-tshirts-singlets/?page=',
         'scraper_config': ScaperConfigs.the_iconic.value,
         'data': []
     },
@@ -60,7 +60,7 @@ WebsiteData = [
         'gender': 1,
         'expiry': 0,
         'base_url': WebsiteUrls.the_iconic.value,
-        'url': WebsiteUrls.the_iconic.value + 'mens-clothing-pants/?page=',
+        'url': WebsiteUrls.the_iconic.value + '/mens-clothing-pants/?page=',
         'scraper_config': ScaperConfigs.the_iconic.value,
         'data': []
     },
@@ -70,7 +70,7 @@ WebsiteData = [
         'gender': 2,
         'expiry': 0,
         'base_url': WebsiteUrls.the_iconic.value,
-        'url': WebsiteUrls.the_iconic.value + 'womens-clothing-tops/?page=',
+        'url': WebsiteUrls.the_iconic.value + '/womens-clothing-tops/?page=',
         'scraper_config': ScaperConfigs.the_iconic.value,
         'data': []
     },
@@ -80,7 +80,7 @@ WebsiteData = [
         'gender': 2,
         'expiry': 0,
         'base_url': WebsiteUrls.the_iconic.value,
-        'url': WebsiteUrls.the_iconic.value + 'womens-clothing-pants/?page=',
+        'url': WebsiteUrls.the_iconic.value + '/womens-clothing-pants/?page=',
         'scraper_config': ScaperConfigs.the_iconic.value,
         'data': []
     },
@@ -91,7 +91,7 @@ WebsiteData = [
         'gender': 1,
         'expiry': 0,
         'base_url': WebsiteUrls.pepper_mayo.value,
-        'url': WebsiteUrls.pepper_mayo.value + 'men/clothing/tops/shirts?p=',
+        'url': WebsiteUrls.pepper_mayo.value + '/men/clothing/tops/shirts?p=',
         'scraper_config': ScaperConfigs.pepper_mayo.value,
         'data': []
     },
@@ -101,7 +101,7 @@ WebsiteData = [
         'gender': 1,
         'expiry': 0,
         'base_url': WebsiteUrls.pepper_mayo.value,
-        'url': WebsiteUrls.pepper_mayo.value + 'men/clothing/jeans-chino?p=',
+        'url': WebsiteUrls.pepper_mayo.value + '/men/clothing/jeans-chino?p=',
         'scraper_config': ScaperConfigs.pepper_mayo.value,
         'data': []
     },
@@ -111,7 +111,7 @@ WebsiteData = [
         'gender': 2,
         'expiry': 0,
         'base_url': WebsiteUrls.pepper_mayo.value,
-        'url': WebsiteUrls.pepper_mayo.value + 'women/clothing/tops?p=',
+        'url': WebsiteUrls.pepper_mayo.value + '/women/clothing/tops?p=',
         'scraper_config': ScaperConfigs.pepper_mayo.value,
         'data': []
     },
@@ -121,7 +121,7 @@ WebsiteData = [
         'gender': 2,
         'expiry': 0,
         'base_url': WebsiteUrls.pepper_mayo.value,
-        'url': WebsiteUrls.pepper_mayo.value + 'women/clothing/jeans?p=',
+        'url': WebsiteUrls.pepper_mayo.value + '/women/clothing/jeans?p=',
         'scraper_config': ScaperConfigs.pepper_mayo.value,
         'data': []
     }
