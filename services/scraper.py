@@ -23,7 +23,11 @@ def scrape_website(user_settings, website, current_page):
     data['expiry'] = time.time()
     data['clothes'] = []
     config = website['scraper_config']
+    print('get_html')
+    print(get_html(website.get('url'), current_page))
     for product in get_html(website.get('url'), current_page).find_all(config['container']['tag'], class_=config['container']['class']):
+        print('product!')
+        print(product)
         data['clothes'].append({
             'price': product.span.text if config.get('price') is None else product.find(config['price']['tag'], class_=config['price']['class']).text,
             'img': product.img['src'] if config.get('img') is None else get_image_url(product, config),
