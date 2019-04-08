@@ -1,2 +1,2 @@
 from .ObjectManager import ObjectManager
-from .scraper import scrape_websites
+from .scraper_service import scrape_websites
