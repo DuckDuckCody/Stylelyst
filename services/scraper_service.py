@@ -1,26 +1,23 @@
-import requests
-import time
-from bs4 import BeautifulSoup
 from services import ObjectManager
+from services.html_service import get_html
 
-def scrape_websites(user_settings, website_data, current_page, cache):
+def scrape_websites(user_settings, website_settings, current_page, cache):
     all_clothes = []
     for website in user_settings.websites:
         cache_key = f"{website}{user_settings.gender}{user_settings.category}{current_page}"
         clothes = cache.get(cache_key)
         if clothes is None:
             object_manager = ObjectManager()
-            website_settings = object_manager.get(website_data, 'website_id', website)
-            clothes = scrape_website(website_settings, current_page)
+            current_website_settings = object_manager.get(website_settings, 'id', cache_key[:-1])
+            clothes = scrape_website(current_website_settings, current_page)
             cache.set(cache_key, clothes, timeout=86400)
 
         all_clothes = all_clothes + clothes
 
     return all_clothes
 
-# website_settings: scraper_config, url, base_url
 def scrape_website(website_settings, current_page):
-    clothes = []
+    clothes = [] 
     config = website_settings['scraper_config']
     page_html = get_html(website_settings['url'], current_page)
     for product in page_html.find_all(config['container']['tag'], class_=config['container']['class']):
@@ -38,9 +35,4 @@ def get_image_url(product, config):
         product_image = product.find(config['img']['tag'], class_=config['img']['class']).img
         return product_image['src']
     except KeyError:
-        return product_image['data-src']   
-
-def get_html(url, current_page):
-    headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0'}
-    page_text = requests.get(url + current_page, headers=headers).text
-    return BeautifulSoup(page_text, 'lxml')
+        return product_image['data-src']
