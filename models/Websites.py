@@ -1,14 +1,9 @@
+from scraper_configs import *
+from constants import WebsiteUrls as website_urls
+from .Website import Website
+
 Websites = [
-    {
-        'id': 2,
-        'name': 'Culture Kings',
-    },
-    {
-        'id': 3,
-        'name': 'The Iconic',
-    },
-    {
-        'id': 4,
-        'name': 'Peppermayo'
-    }
+    Website(1, 'Culture Kings', culture_kings_config, website_urls.culture_kings),
+    Website(2, 'The Iconic', the_iconic_config, website_urls.the_iconic),
+    Website(3, 'Peppermayo', pepper_mayo_config, website_urls.pepper_mayo)
 ]
