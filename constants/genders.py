@@ -1,4 +1,4 @@
-Genders =  [
+genders =  [
     {
         "id": 1,
         "name": "Male",

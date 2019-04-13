@@ -1,5 +1,5 @@
-from models.Websites import Websites
-from services.ListManager import ListManager
+from constants import Websites
+from services import ListManager
 
 class WebsiteCategory:
     def __init__(self, website_id, gender, category, url_extension):

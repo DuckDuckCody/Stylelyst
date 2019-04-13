@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, g
-from models import Websites, WebsiteCategories, Genders, Categories
+from constants import Websites, WebsiteCategories, Genders, Categories
 from services import scrape_websites
 from decorators import load_user_settings
 from werkzeug.contrib.cache import SimpleCache
@@ -22,7 +22,7 @@ def index():
 def config():
     return render_template(
         'config.html', 
-        websites=Websites, 
+        websites=Websites,
         genders=Genders, 
         categories=Categories, 
         user_settings=g.user_settings

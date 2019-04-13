@@ -1,6 +1,6 @@
-from models.WebsiteCategory import WebsiteCategory
+from models import WebsiteCategory
 
-WebsiteCategories = [
+website_categories = [
     # culture kings
     WebsiteCategory(1, 1, 1, '/collections/mens-tops?page='),
     WebsiteCategory(1, 1, 2, '/collections/mens-tops-jacket?page='),

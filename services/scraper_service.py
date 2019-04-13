@@ -1,5 +1,4 @@
-from services.ListManager import ListManager
-from services.html_service import get_html
+from services.ListManager import ListManager, get_html
 
 def scrape_websites(user_settings, website_settings, current_page, cache):
     all_clothes = []
