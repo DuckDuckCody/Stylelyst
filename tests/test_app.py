@@ -4,8 +4,7 @@ from application import application
 @pytest.fixture
 def client():
     application.config['TESTING'] = True
-    client = application.test_client()
-    yield client
+    return application.test_client()
 
 def test_config_page(client):
     res = client.get('/config')

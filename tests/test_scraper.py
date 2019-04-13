@@ -6,8 +6,7 @@ from constants import website_categories
 @pytest.fixture
 def client():
     application.config['TESTING'] = True
-    client = application.test_client()
-    yield client
+    return application.test_client()
 
 def test_each_website_category(client):
     for website_category in website_categories:    
