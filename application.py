@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, g
-from constants import Websites, WebsiteCategories, Genders, Categories
+from constants import website_categories, websites, genders, categories
 from services import scrape_websites
 from decorators import load_user_settings
 from werkzeug.contrib.cache import SimpleCache
@@ -14,7 +14,7 @@ def index():
     if current_page is None:
         current_page = '1'
 
-    clothes = scrape_websites(g.user_settings, WebsiteCategories, current_page, cache)
+    clothes = scrape_websites(g.user_settings, website_categories, current_page, cache)
     return render_template('index.html', clothes=clothes, current_page=current_page)
 
 @application.route("/config", methods=['GET'])
@@ -22,8 +22,8 @@ def index():
 def config():
     return render_template(
         'config.html', 
-        websites=Websites,
-        genders=Genders, 
-        categories=Categories, 
+        websites=websites,
+        genders=genders, 
+        categories=categories, 
         user_settings=g.user_settings
     )

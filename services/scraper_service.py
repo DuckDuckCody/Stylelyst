@@ -1,4 +1,4 @@
-from services.ListManager import ListManager, get_html
+from services import list_service, get_html
 
 def scrape_websites(user_settings, website_settings, current_page, cache):
     all_clothes = []
@@ -6,8 +6,7 @@ def scrape_websites(user_settings, website_settings, current_page, cache):
         cache_key = f"{website}{user_settings.gender}{user_settings.category}{current_page}"
         clothes = cache.get(cache_key)
         if clothes is None:
-            lm = ListManager()
-            current_website_settings = lm.find_by_obj_attr(website_settings, 'id', cache_key[:-1])    
+            current_website_settings = list_service.find_by_obj_attr(website_settings, 'id', cache_key[:-1])    
             clothes = scrape_website(current_website_settings, current_page)
             cache.set(cache_key, clothes, timeout=86400)
 

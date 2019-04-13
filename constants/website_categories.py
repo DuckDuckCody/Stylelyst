@@ -1,4 +1,4 @@
-from models import WebsiteCategory
+from models.WebsiteCategory import WebsiteCategory
 
 website_categories = [
     # culture kings

@@ -1,10 +1,9 @@
-from constants import Websites
-from services import ListManager
+from constants.websites import websites
+from services import list_service
 
 class WebsiteCategory:
     def __init__(self, website_id, gender, category, url_extension):
-        lm = ListManager()
-        website = lm.find_by_obj_attr(Websites, 'id', website_id)
+        website = list_service.find_by_obj_attr(websites, 'id', website_id)
         self.website_id = website.id
         self.name = website.name
         self.scraper_config = website.scraper_config
@@ -15,4 +14,4 @@ class WebsiteCategory:
         self.url = f"{self.base_url}{url_extension}"
 
     def __str__(self):
-        return "id: %s, url: %s, scraper_config: %s" % (self.id, self.url, self.scraper_config)
+        return "id: %s, name: %s, url: %s" % (self.id, self.name, self.url)
