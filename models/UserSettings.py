@@ -3,7 +3,7 @@ class UserSettings:
         if bool(settings): 
             self.load_settings(settings)
         else:
-            self.websites = [2,3,4]
+            self.websites = [1,2,3]
             self.gender = 1
             self.category = 1
 

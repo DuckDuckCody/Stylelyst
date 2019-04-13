@@ -13,3 +13,6 @@ class WebsiteCategory:
         self.category = category
         self.id = f"{self.website_id}{self.gender}{self.category}"
         self.url = f"{self.base_url}{url_extension}"
+
+    def __str__(self):
+        return "id: %s, url: %s, scraper_config: %s" % (self.id, self.url, self.scraper_config)
