@@ -28,7 +28,17 @@
         {% for clothe in clothes %}
             <div class="product">
                 <p>{{clothe.name}}</p>
-                <p>{{clothe.price}}</p> 
+                <p>
+                    ${{clothe.price}} 
+                    {% if clothe.compare_price %}
+                        <span class="line-through">${{clothe.compare_price}}</span>
+                    {% endif %}
+                </p>
+                {% if clothe.compare_price %}
+                    <p>
+                        {{ (((clothe.compare_price - clothe.price) / clothe.compare_price) * 100) | int }}% off
+                    </p>
+                {% endif %}
                 <a href="{{clothe.link}}" target="_blank">
                     <img class="product-image" data-src="{{clothe.img}}">
                 </a>

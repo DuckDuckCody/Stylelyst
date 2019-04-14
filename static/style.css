@@ -8,6 +8,10 @@ body {
   box-sizing: border-box;
 }
 
+.line-through {
+  text-decoration: line-through;
+}
+
 h3 {
   margin: 0;
 }

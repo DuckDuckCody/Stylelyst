@@ -7,6 +7,10 @@ pepper_mayo_config = {
         'tag': 'span',
         'class': 'current-price'
     },
+    'compare_price': {
+        'tag': 'span',
+        'class': 'original-price'
+    },
     'img': {
         'tag': 'a',
         'class': 'product photo product-item-photo'

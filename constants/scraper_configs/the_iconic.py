@@ -7,6 +7,10 @@ the_iconic_config = {
         'tag': 'span',
         'class': 'price'
     },
+    'compare_price': {
+        'tag': 'span',
+        'class': 'old-price'
+    },
     'img': {
         'tag': 'span',
         'class': 'image-frame'

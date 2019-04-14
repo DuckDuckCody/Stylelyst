@@ -10,5 +10,9 @@ categories = [
     {
         "id": 3,
         "name": "All Pants"
+    },
+    {
+        "id": 4,
+        "name": "Clearance"
     }
 ]

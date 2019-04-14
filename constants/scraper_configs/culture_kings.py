@@ -5,7 +5,11 @@ culture_kings_config = {
     },
     'price': {
         'tag': 'span',
-        'class': 'money'
+        'class': 'js-price'
+    },
+    'compare_price': {
+        'tag': 'span',
+        'class': 'product-compare-price'
     },
     'img': {
         'tag': 'div',
