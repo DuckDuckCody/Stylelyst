@@ -1,26 +1,9 @@
-culture_kings_config = {
-    'container': {
-        'tag': 'div',
-        'class': 'product-grid-item'
-    },
-    'price': {
-        'tag': 'span',
-        'class': 'js-price'
-    },
-    'compare_price': {
-        'tag': 'span',
-        'class': 'product-compare-price'
-    },
-    'img': {
-        'tag': 'div',
-        'class': 'product-card__image'
-    },
-    'name': {
-        'tag': 'p',
-        'class': 'product-title'
-    },
-    'link': {
-        'tag': 'a',
-        'class': 'product-card__link'
-    }
-}
+from models import ScraperConfig
+from constants.website_urls import website_urls
+
+culture_kings_config = ScraperConfig('div', 'product-grid-item')
+culture_kings_config.add_text_component('name', 'p', 'product-title')
+culture_kings_config.add_price_component('price', 'span', 'js-price')
+culture_kings_config.add_price_component('compare_price', 'span', 'product-compare-price')
+culture_kings_config.add_img_component('img', 'div', 'product-card__image')
+culture_kings_config.add_link_component('link', 'a', 'product-card__link', website_urls['culture_kings'])

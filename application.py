@@ -10,12 +10,15 @@ cache = SimpleCache()
 @application.route("/", methods=['GET'])
 @load_user_settings
 def index():
-    current_page = request.args.get('page')
-    if current_page is None:
-        current_page = '1'
-
+    current_page = request.args.get('page', '1')
     clothes = scrape_websites(g.user_settings, website_categories, current_page, cache)
     return render_template('index.html', clothes=clothes, current_page=current_page)
+
+@application.route("/search", methods=['GET'])
+@load_user_settings
+def search():
+    query = request.args.get('query')
+    return "Search Page!: " + query
 
 @application.route("/config", methods=['GET'])
 @load_user_settings

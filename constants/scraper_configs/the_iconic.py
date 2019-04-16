@@ -1,26 +1,9 @@
-the_iconic_config = {
-    'container': {
-        'tag': 'figure',
-        'class': 'pinboard'
-    },
-    'price': {
-        'tag': 'span',
-        'class': 'price'
-    },
-    'compare_price': {
-        'tag': 'span',
-        'class': 'old-price'
-    },
-    'img': {
-        'tag': 'span',
-        'class': 'image-frame'
-    },
-    'name': {
-        'tag': 'span',
-        'class': 'name'
-    },
-    'link': {
-        'tag': 'a',
-        'class': 'product-details'
-    }
-}
+from models import ScraperConfig
+from constants.website_urls import website_urls
+
+the_iconic_config = ScraperConfig('figure', 'pinboard')
+the_iconic_config.add_text_component('name', 'span', 'name')
+the_iconic_config.add_price_component('price', 'span', 'price')
+the_iconic_config.add_price_component('compare_price', 'span', 'old-price')
+the_iconic_config.add_img_component('img', 'span', 'image-frame')
+the_iconic_config.add_link_component('link', 'a', 'product-details', website_urls['the_iconic'])

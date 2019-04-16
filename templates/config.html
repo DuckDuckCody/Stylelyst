@@ -10,7 +10,7 @@
         Config Page
     </h4>
     <form name="form-config" id="form-config">
-        <div style="padding-bottom:1rem;">
+        <div>
             <h5>Gender</h5>
             <div class="field">
                 <div class="control has-text-centered">
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-            <p class="is-size-5">Categories</p>
+            <h5>Categories</h5>
             <div class="field">
                 <div class="control has-text-centered">
                     {% for category in categories %}
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div style="padding-bottom:1rem;" id="container-websites">
-            <p>Websites</p>
+            <h5>Websites</h5>
             {% for website in websites %}
             <div style="padding-bottom:0.5rem;">
                 <label for="{{website.id}}">{{website.name}}</label>
