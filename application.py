@@ -4,11 +4,6 @@ from services import scrape_websites
 from decorators import load_user_settings
 from werkzeug.contrib.cache import SimpleCache
 
-# TODO
-# improve config naming scheme and parameters **DONE**
-# improve scrape_websites
-# add search route logic
-
 application = Flask(__name__)
 cache = SimpleCache()
 
