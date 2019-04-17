@@ -10,5 +10,5 @@ def client():
 
 def test_each_website_category(client):
     for website_category in website_categories:    
-        response = scrape_website(website_category, '1')
+        response = scrape_website(website_category.url + '1', website_category.scraper_config)
         assert len(response) > 0
