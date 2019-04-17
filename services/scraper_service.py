@@ -19,7 +19,7 @@ def scrape_websites(user_settings, website_settings, current_page, cache):
 def scrape_website(url, config):
     page_html = get_html(url)
     html_elements = page_html.find_all(config.container_tag, class_=config.container_class)
-    return [ scrape_element(html_element, config.components) for html_element in html_elements ]
+    return [ scrape_element(html_element, config.get_components()) for html_element in html_elements ]
 
 def scrape_element(html_element, components):
     return { component.name: component.scrape(html_element) for component in components }

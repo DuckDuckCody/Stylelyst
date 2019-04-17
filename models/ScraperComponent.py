@@ -1,4 +1,4 @@
-class ScraperConfigComponent():
+class ScraperComponent():
     def __init__(self, name, tag, _class):
         self.name = name
         self.tag = tag
