@@ -1,4 +1,4 @@
-from constants.scraper_configs import *
+from constants.scrapers import *
 from constants.website_urls import website_urls
 from models.Website import Website
 

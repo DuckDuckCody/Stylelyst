@@ -1,6 +1,6 @@
-from models import ScraperConfig
+from models import Scraper
 
-pepper_mayo_config = ScraperConfig('li', 'item product product-item')
+pepper_mayo_config = Scraper('li', 'item product product-item')
 pepper_mayo_config.add_text_component('name', 'p', 'product-item-name')
 pepper_mayo_config.add_price_component('price', 'span', 'current-price')
 pepper_mayo_config.add_price_component('compare_price', 'span', 'original-price')

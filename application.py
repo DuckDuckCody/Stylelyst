@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, g
 from constants import website_categories, websites, genders, categories
-from services import scrape_websites
+from services import scrape_category_page, scrape_search_page
 from decorators import load_user_settings
 from werkzeug.contrib.cache import SimpleCache
 
@@ -11,14 +11,15 @@ cache = SimpleCache()
 @load_user_settings
 def index():
     current_page = request.args.get('page', '1')
-    clothes = scrape_websites(g.user_settings, website_categories, current_page, cache)
+    clothes = scrape_category_page(g.user_settings, website_categories, current_page, cache)
     return render_template('index.html', clothes=clothes, current_page=current_page)
 
 @application.route("/search", methods=['GET'])
 @load_user_settings
 def search():
-    query = request.args.get('query')
-    return "Search Page!: " + query
+    query = request.args.get('query', '')
+    clothes = scrape_search_page(g.user_settings, website_categories, query, cache)
+    return render_template('index.html', clothes=clothes, current_page=None)
 
 @application.route("/config", methods=['GET'])
 @load_user_settings

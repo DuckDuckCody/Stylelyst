@@ -1,7 +1,7 @@
-from models import ScraperConfig
+from models import Scraper
 from constants.website_urls import website_urls
 
-the_iconic_config = ScraperConfig('figure', 'pinboard')
+the_iconic_config = Scraper('figure', 'pinboard')
 the_iconic_config.add_text_component('name', 'span', 'name')
 the_iconic_config.add_price_component('price', 'span', 'price')
 the_iconic_config.add_price_component('compare_price', 'span', 'old-price')

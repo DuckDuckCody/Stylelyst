@@ -1,25 +1,26 @@
-from services import list_service, get_html
+from services import list_service
 
-def scrape_websites(user_settings, website_settings, current_page, cache):
-    all_clothes = []
-    for website in user_settings.websites:
-        cache_key = f"{website}{user_settings.gender}{user_settings.category}{current_page}"
-        clothes = cache.get(cache_key)
-        if clothes is None:
-            clothes = []
-            current_website_settings = list_service.find_by_obj_attr(website_settings, 'id', cache_key[:-1])  
-            if current_website_settings:  
-                clothes = scrape_website(current_website_settings.url + current_page, current_website_settings.scraper_config)
-                cache.set(cache_key, clothes, timeout=86400)
+def scrape_category(user_settings, website_categories, current_page, cache):
+    setting_id_extension = f"{user_settings.gender}{user_settings.category}"
+    return scrape(user_settings.websites, website_categories, setting_id_extension, cache)
 
-        all_clothes = all_clothes + clothes
+def scrape_search(user_settings, website_categories, query, cache):
+    cache_extension = f"{query}-query"
+    return scrape(user_settings.websites, website_categories, cache_extension, cache)
 
-    return all_clothes
+def scrape(websites, website_categories, setting_id_extension, cache):
+    all_items = []
+    for website in websites:
+        website_setting = list_service.find_by_obj_attr(website_categories, 'id', website + setting_id_extension)  
+        cache_key = website_setting + current_page
+        items = cache.get(cache_key)
+        if items is None:
+            # website_setting = list_service.find_by_obj_attr(website_categories, 'id', cache_key[:-1])  
+            # url = website_setting.url + current_page
+            url = websites_settings.url
+            items = website_settings.scraper.scrape(url)
+            cache.set(cache_key, items, timeout=86400)
 
-def scrape_website(url, config):
-    page_html = get_html(url)
-    html_elements = page_html.find_all(config.container_tag, class_=config.container_class)
-    return [ scrape_element(html_element, config.get_components()) for html_element in html_elements ]
+        all_items = all_items + items
 
-def scrape_element(html_element, components):
-    return { component.name: component.scrape(html_element) for component in components }
+    return all_items

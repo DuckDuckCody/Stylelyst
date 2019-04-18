@@ -6,7 +6,7 @@ class WebsiteCategory:
         website = list_service.find_by_obj_attr(websites.websites, 'id', website_id)
         self.website_id = website.id
         self.name = website.name
-        self.scraper_config = website.scraper_config
+        self.scraper = website.scraper
         self.base_url = website.base_url
         self.gender_id = gender_id
         self.category_id = category_id
