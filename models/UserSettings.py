@@ -3,14 +3,14 @@ class UserSettings:
         if bool(settings): 
             self.load_settings(settings)
         else:
-            self.websites = [1]
-            self.gender = 1
-            self.category = 1
+            self.website_ids = [1]
+            self.gender_id = 1
+            self.category_id = 1
 
     def load_settings(self, settings):
-        self.websites = list(map(int, settings.get('websites').split(',')))
-        self.gender = int(settings.get('gender'))
-        self.category = int(settings.get('category'))
+        self.website_ids = list(map(int, settings.get('website_ids').split(',')))
+        self.gender_id = int(settings.get('gender_id'))
+        self.category_id = int(settings.get('category_id'))
 
     def __str__(self):
-        return "websites: %s, gender: %s, category: %s" % (self.websites, self.gender, self.category)
+        return "website_ids: %s, gender_id: %s, category_id: %s" % (self.website_ids, self.gender_id, self.category_id)

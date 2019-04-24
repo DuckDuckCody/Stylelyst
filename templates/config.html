@@ -16,8 +16,8 @@
                 <div class="control has-text-centered">
                     {% for gender in genders %}
                         <label class="radio">
-                            <input id="gender-{{gender.id}}" name="gender" type="radio" value="{{gender.id}}"
-                                {% if user_settings.gender == gender.id %} checked {% endif %}
+                            <input type="radio" name="gender_id" value="{{gender.id}}"
+                                {% if user_settings.gender_id == gender.id %} checked {% endif %}
                             />
                             {{gender.name}}
                         </label>
@@ -30,8 +30,8 @@
                 <div class="control has-text-centered">
                     {% for category in categories %}
                         <label class="radio">
-                            <input id="category-{{category.id}}" name="category" type="radio" value="{{category.id}}"
-                                {% if user_settings.category == category.id %} checked {% endif %}
+                            <input type="radio" name="category_id" value="{{category.id}}"
+                                {% if user_settings.category_id == category.id %} checked {% endif %}
                             />
                             {{category.name}}
                         </label>
@@ -44,8 +44,8 @@
             {% for website in websites %}
             <div style="padding-bottom:0.5rem;">
                 <label for="{{website.id}}">{{website.name}}</label>
-                <input id="website-{{website.id}}" name="{{website.id}}" type="checkbox" value="True" 
-                    {% if website.id in user_settings.websites %} checked {% endif %} 
+                <input type="checkbox" id="{{website.id}}" name="{{website.id}}" value="True" 
+                    {% if website.id in user_settings.website_ids %} checked {% endif %} 
                 />
             </div>
             {% endfor %}

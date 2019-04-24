@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import request, g
-from models import UserSettings
+from models.UserSettings import UserSettings
 
 def load_user_settings(f):
     @wraps(f)

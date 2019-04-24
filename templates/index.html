@@ -8,7 +8,6 @@
     <div class="navbar">
         <div class="flex space-around navbar-bar">
             <h3>Python Clothes</h3>
-            <span>Page: {{current_page}}</span>
         </div>
         <div class="flex flex-end navbar-bar">
             {% if current_page != '1' %}
@@ -36,7 +35,7 @@
                 </p>
                 {% if clothe.compare_price %}
                     <p>
-                        {{ (((clothe.compare_price - clothe.price) / clothe.compare_price) * 100) | int }}% off
+                        {# {{ (((clothe.compare_price - clothe.price) / clothe.compare_price) * 100) | int }}% off #}
                     </p>
                 {% endif %}
                 <a href="{{clothe.link}}" target="_blank">
